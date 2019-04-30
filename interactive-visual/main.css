@@ -1,0 +1,74 @@
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+    height: 550px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+    .row.content {
+        height: auto;
+    }
+}
+
+body {
+    padding: 25px;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+#dashboard {
+    display: none;
+}
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+text {
+    font-weight: bolder;
+    fill: white;
+    text-anchor: middle;
+}
+
+#event-title,
+#talk-title {
+    margin-bottom: 0px;
+}
+
+circle {}
+
+.card {
+    /*    background-color: #f9f9f9;*/
+    height: 300px;
+}
+
+.card-body {
+    overflow-y: scroll;
+}
+
+.container {
+    display: table;
+    /*    height: 100%;*/
+    /*    padding-top: 0px;*/
+    margin: 0px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+#slider {
+    width: 50%;
+}
+
+.input-group {
+    position: absolute;
+    /*    top: 50%;*/
+    display: table-cell;
+    vertical-align: middle;
+}
