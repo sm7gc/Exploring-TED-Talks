@@ -46,9 +46,12 @@ text {
 
 circle {}
 
-.card.mb-3 {
-    /*    background-color: #f9f9f9;*/
-    height: 275px;
+#event {
+    height: 150px;
+}
+
+#talk {
+    height: 400px;
 }
 
 .card-body {
