@@ -1,0 +1,30 @@
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+    height: 550px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+    .row.content {
+        height: auto;
+    }
+}
+
+body {
+    padding: 25px;
+}
+
+.navbar {
+    margin-bottom: 15px;
+}
+
+iframe {
+    border: none;
+    overflow: hidden;
+}
+
+.title {
+    padding-left: 1%;
+}

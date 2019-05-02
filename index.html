@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ted Talks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+
+    <script src="packed-bubble.js"></script>
+</head>
+
+
+<body scroll="no" style="overflow: hidden" onload="getData()">
+
+    <!--<body onload="getData()">-->
+
+    <div class="container-fluid">
+        <div class="row content">
+            <br>
+
+            <div class="col-lg-12">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link active" href="index.html">Explore</a>
+                            <a class="nav-item nav-link" href="plotly.html">LIWC</a>
+                            <a class="nav-item nav-link" href="similarity.html">Similarity</a>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="title">
+                    <h2>Exploring TED Talks: A Cultural Deconstruction</h2>
+                    <div class="lead">
+                        Add explanation here
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="mb-5">
+                                <div class="input-group">
+                                    <label id="slider-label" for="slider">Year</label>
+                                    <input id="slider" type="range" oninput="changeLabel(this.value)" onchange="getData(this.value)" list="slider-vals">
+                                    <datalist id="slider-vals"></datalist>
+
+                                    <button type="button" class="btn btn-light btn-sm" onclick="getData($('#slider').val())">Reset</button>
+                                </div>
+                            </div>
+                            <svg id="chart"></svg>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h5 id="event-title" class="card-title">Event Description</h5>
+                                </div>
+                                <div class="card-body">
+                                    <h6 id="event-subtitle" class="card-subtitle mb-2 text-muted"></h6>
+                                    <p id="event-text" class="card-text"></p>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h5 id="talk-title" class="card-title">Talk Description</h5>
+                                </div>
+                                <div class="card-body">
+                                    <h6 id="talk-subtitle" class="card-subtitle mb-2 text-muted"></h6>
+                                    <p id="talk-text" class="card-text"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
