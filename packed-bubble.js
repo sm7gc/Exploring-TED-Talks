@@ -148,8 +148,8 @@ function drawNodes(nodes) {
 
             var event_desc = eventDetails(d.data.key);
 
-            $("#event-title").text(event_desc.title);
-            $("#event-subtitle").text(event_desc.subtitle);
+            $("#event-title").html(event_desc.title);
+            $("#event-subtitle").html(event_desc.subtitle);
             $("#event-text").html(event_desc.text);
 
 
@@ -161,8 +161,8 @@ function drawNodes(nodes) {
                 .attr("stroke", "none")
                 .style("opacity", 1);
 
-            $("#event-title").text("Event Description");
-            $("#event-subtitle").text("");
+            $("#event-title").html("Event Description");
+            $("#event-subtitle").html("");
             $("#event-text").html("");
         })
         .attr('r', 0)
@@ -197,22 +197,38 @@ function eventDetails(event) {
     var title = event;
     //    if (curr_year) title += ", " + curr_year;
 
-    var sub = ""
+    var sub = "",
+        text = "";
 
     var eventjson = datajson.filter(function (d) {
         return d.event == event;
     });
 
+    var dates = eventjson.map(d => new Date(d.date_published)),
+        options = {
+            //            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        };
+
+    var years = eventjson.map(d => d.year_filmed);
+    years = years.filter(function (item, pos) {
+        return years.indexOf(item) == pos;
+    }).sort();
+
     var talks = d3.map(eventjson, function (d) {
         return d.headline;
     }).keys();
 
-    sub += talks.length + " talks";
+    sub += talks.length + " talks. ";
+    text += years.length == 1 ? "Filmed in " + years[0] + "<br/>" : "Filmed from " + years[0] + " to " + years[years.length - 1] + "<br/>";
+    text += "Published online from " + dates[0].toLocaleDateString("en-US", options) + " - " + dates[dates.length - 1].toLocaleDateString("en-US", options);
 
     return {
         "title": title,
         "subtitle": sub,
-        "text": ""
+        "text": text
     };
 
 }
